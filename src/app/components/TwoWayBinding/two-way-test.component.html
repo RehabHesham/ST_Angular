@@ -1,0 +1,64 @@
+<p>two-way-test works!</p>
+
+<p>normal way</p>
+<div class="bg-light p-2 m-2">
+  <h3>Images Slider</h3>
+
+  <img [src]="imgSrc" />
+  <button (click)="nextImage()" class="btn btn-success">Next Image</button>
+  <br />
+</div>
+
+<div class="bg-light p-2 m-2">
+  <h3>input shadow</h3>
+  <input type="text" placeholder="enter msg" (input)="getMessage($event)" />
+
+  <p class="alert alert-sucess">{{ message }}</p>
+</div>
+
+<div class="bg-light p-2 m-2">
+  <h3>Form</h3>
+  <form (submit)="submit($event)">
+    name:
+    <input
+      type="text"
+      placeholder="enter name"
+      (input)="getName($event)"
+      [value]="username"
+    /><br />
+    password:
+    <input
+      type="password"
+      placeholder="enter password"
+      (input)="getPassword($event)"
+      [value]="password"
+    />
+    <br />
+    <input type="submit" />
+  </form>
+</div>
+
+<p>FormsModule</p>
+<p>import FormsModule in app.module.ts</p>
+
+<div class="bg-light p-2 m-2">
+  <h3>Form</h3>
+  <form (submit)="submit2($event)">
+    name:
+    <input
+      type="text"
+      placeholder="enter name"
+      name="name"
+      [(ngModel)]="username2"
+    /><br />
+    password:
+    <input
+      type="password"
+      placeholder="enter password"
+      name="password"
+      [(ngModel)]="password2"
+    />
+    <br />
+    <input type="submit" />
+  </form>
+</div>

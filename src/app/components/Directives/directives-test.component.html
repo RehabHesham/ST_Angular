@@ -1,0 +1,84 @@
+<p>directives-test works!</p>
+
+<h2>Directives</h2>
+
+<h4>Structural Directives</h4>
+
+<h5>ngIf <input type="checkbox" (change)="changeVal($event)" /></h5>
+<div *ngIf="isVisible; else notify" class="bg-info-subtle p-2 m-2 text-center">
+  <h3>Welcome</h3>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et ducimus
+    eligendi quas repudiandae aliquam in cupiditate qui provident voluptatum
+    excepturi! Aut alias dignissimos, cupiditate sint quas ratione! Ab, rem
+    eligendi?
+  </p>
+  <button class="btn btn-info">Navigate</button>
+</div>
+<ng-template #notify>
+  <div class="alert alert-warning p-2 m-2 text-center">
+    <p>check the checked button to display div</p>
+  </div>
+</ng-template>
+
+<h5>
+  ngSwitch
+  <select (change)="changeColor($event)">
+    <option selected value="">choose color</option>
+    <option value="blue">Blue</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+  </select>
+</h5>
+<div [ngSwitch]="color" class="bg-info-subtle p-2 m-2 text-center">
+  <div *ngSwitchCase="'blue'" class="alert alert-primary">blue</div>
+  <div *ngSwitchCase="'green'" class="alert alert-success">green</div>
+  <div *ngSwitchCase="'red'" class="alert alert-danger">red</div>
+  <div *ngSwitchDefault="" class="alert alert-dark">not valid color</div>
+</div>
+
+<h5>ngFor</h5>
+<div
+  *ngFor="let name of names; let i = index"
+  class="bg-info-subtle p-2 m-2 text-center"
+>
+  <h2>welocme {{ name }} - {{ i }}</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sint earum
+    corporis vitae numquam porro eius voluptates?
+  </p>
+</div>
+
+<app-test *ngFor="let name of names; let i = index"></app-test>
+
+<h4>Component Directives</h4>
+<app-test></app-test>
+
+<h4>
+  Attribute Directives <input type="checkbox" (change)="changeVal2($event)" />
+</h4>
+
+<div class="bg-info-subtle p-2 m-2 text-center">
+  <p [class.bg-success]="isCentered">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, a?
+  </p>
+  <p
+    [ngClass]="{
+      'bg-success': isCentered,
+      'bg-secondary': !isCentered
+    }"
+  >
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, a?
+  </p>
+  <p [style.backgroundColor]="isCentered ? 'red' : 'green'">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, a?
+  </p>
+  <p
+    [ngStyle]="{
+      backgroundColor: isCentered ? 'red' : 'green',
+      padding: isCentered ? '90px' : '10px'
+    }"
+  >
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos, a?
+  </p>
+</div>

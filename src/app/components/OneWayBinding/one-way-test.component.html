@@ -1,0 +1,17 @@
+<p>one-way-test works!</p>
+
+<p>using interpolation</p>
+
+<h3>{{ ComponentTitle }}</h3>
+<img src="{{ imgSrc }}" />
+<img src="assets/images/{{ imgSrc2 }}" />
+
+<p>using attribute</p>
+
+<img [src]="imgSrc" />
+<input type="text" [value]="ComponentTitle" />
+
+<p>Events Binding</p>
+
+<button (click)="printTarget($event)" class="btn btn-success">click me</button>
+<input type="text" (input)="getText($event)" />
